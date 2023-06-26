@@ -11,7 +11,8 @@ const Detail = () => {
   const todo = todos.filter((todo) => todo.id === id)[0];
   const review = reviews.filter((review) => review.id === id)[0];
 
-  const [comment, setComment] = useState("");
+  const [name, setName] = useState("");
+  const [review, setReview] = useState("");
 
   const dispatch = useDispatch();
   return (
@@ -27,22 +28,38 @@ const Detail = () => {
       <br />
       <button onClick={() => navigate("/")}>이전 화면으로</button>
       <br />
-      이름 : <input />
-      댓글 : <input />
-      {reviews.filter((review) => {
-        review.id === todo.id;
-      })}
-      <button
-        onClick={() => {
-          dispatch({
-            type: "COMMENT_ADD",
-            payload: reviews.id,
-          });
+      <form
+        onChange={(e) => {
+          e.preventDefault();
         }}
-        style={{ marginLeft: "10px" }}
       >
-        댓글 등록
-      </button>
+        이름 :{" "}
+        <input
+          value={name}
+          onChange={(e) => {
+            set;
+          }}
+        />
+        댓글 : <input value={review} />
+        {reviews
+          .map((review) => {
+            return;
+          })
+          .filter((review) => {
+            review.id === todo.id;
+          })}
+        <button
+          onClick={() => {
+            dispatch({
+              type: "COMMENT_ADD",
+              payload: reviews.id,
+            });
+          }}
+          style={{ marginLeft: "10px" }}
+        >
+          댓글 등록
+        </button>
+      </form>
     </div>
   );
 };
