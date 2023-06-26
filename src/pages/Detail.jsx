@@ -18,7 +18,7 @@ const Detail = () => {
   return (
     <div>
       {todo.id}
-      {reviews.id}
+
       <br />
       {todo.title}
       <br />
